@@ -37,7 +37,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TG-SH-g1J" userLabel="heightValue">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0m" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TG-SH-g1J" userLabel="heightValue">
                                                         <rect key="frame" x="180.66666666666663" y="0.0" width="180.33333333333337" height="71"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                         <nil key="textColor"/>
@@ -45,8 +45,11 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4xb-b4-V7j" userLabel="heightSlider">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="4xb-b4-V7j" userLabel="heightSlider">
                                                 <rect key="frame" x="-2" y="70.999999999999943" width="365" height="72"/>
+                                                <connections>
+                                                    <action selector="onHeightSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="c3C-zv-VVV"/>
+                                                </connections>
                                             </slider>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1IQ-wm-r5k">
                                                 <rect key="frame" x="0.0" y="141.99999999999994" width="361" height="71"/>
@@ -57,7 +60,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIp-Zj-kdN" userLabel="weightValue">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0Kg" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIp-Zj-kdN" userLabel="weightValue">
                                                         <rect key="frame" x="180.66666666666663" y="0.0" width="180.33333333333337" height="71"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                                         <nil key="textColor"/>
@@ -65,13 +68,19 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="F1A-0U-ade" userLabel="weightSlider">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="F1A-0U-ade" userLabel="weightSlider">
                                                 <rect key="frame" x="-2" y="212.99999999999994" width="365" height="72.333333333333314"/>
+                                                <connections>
+                                                    <action selector="onWeightSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ptq-xa-LWT"/>
+                                                </connections>
                                             </slider>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCC-ZH-FWF" userLabel="calculateButton">
                                                 <rect key="frame" x="0.0" y="284.33333333333331" width="361" height="71"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Calculate"/>
+                                                <connections>
+                                                    <action selector="onButtonCalculateClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Gh-Vv-YXl"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -88,6 +97,12 @@
                             <constraint firstItem="Tqw-f0-8z6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ysu-qq-1S4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="heightSlider" destination="4xb-b4-V7j" id="3oB-bW-VR4"/>
+                        <outlet property="heightValue" destination="0TG-SH-g1J" id="kee-rK-yZS"/>
+                        <outlet property="weightSlider" destination="F1A-0U-ade" id="V8b-SW-4dB"/>
+                        <outlet property="weightValue" destination="rIp-Zj-kdN" id="sSz-GN-nJk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
