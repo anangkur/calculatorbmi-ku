@@ -102,11 +102,89 @@
                         <outlet property="heightValue" destination="0TG-SH-g1J" id="kee-rK-yZS"/>
                         <outlet property="weightSlider" destination="F1A-0U-ade" id="V8b-SW-4dB"/>
                         <outlet property="weightValue" destination="rIp-Zj-kdN" id="sSz-GN-nJk"/>
+                        <segue destination="QnO-fV-g3I" kind="presentation" identifier="goToResult" id="wBW-vJ-V4Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="-27"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="VNi-rg-2AT">
+            <objects>
+                <viewController id="QnO-fV-g3I" customClass="ResultViewController" customModule="bmicalculatorku" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zFR-AC-3SH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="YFw-iP-fu6" userLabel="root">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RtW-mR-gSt">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="421"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-mJ-BcG" userLabel="bmiView">
+                                                <rect key="frame" x="0.0" y="153.33333333333334" width="393" height="114.66666666666666"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your BMI is" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQK-s8-sIe" userLabel="bmiTitleLabel">
+                                                        <rect key="frame" x="139.33333333333334" y="0.0" width="114.66666666666666" height="57.333333333333336"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikG-N1-dEy" userLabel="bmiValueLabel">
+                                                        <rect key="frame" x="181.66666666666666" y="57.333333333333314" width="29.666666666666657" height="57.333333333333343"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="jwx-mJ-BcG" firstAttribute="centerY" secondItem="RtW-mR-gSt" secondAttribute="centerY" id="bRQ-rJ-9GH"/>
+                                            <constraint firstAttribute="trailing" secondItem="jwx-mJ-BcG" secondAttribute="trailing" id="dgZ-XE-Hkm"/>
+                                            <constraint firstItem="jwx-mJ-BcG" firstAttribute="leading" secondItem="RtW-mR-gSt" secondAttribute="leading" id="eqJ-BH-3n3"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAl-DZ-xmX" userLabel="buttonView">
+                                        <rect key="frame" x="0.0" y="421" width="393" height="421"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GfD-Ae-jwH" userLabel="recalculateButton">
+                                                <rect key="frame" x="140.66666666666666" y="193.33333333333337" width="112" height="34.333333333333343"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Recalculate"/>
+                                                <connections>
+                                                    <action selector="onClickRecalculate:" destination="QnO-fV-g3I" eventType="touchUpInside" id="ge8-7L-loV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="GfD-Ae-jwH" firstAttribute="centerY" secondItem="dAl-DZ-xmX" secondAttribute="centerY" id="jAO-J4-PVn"/>
+                                            <constraint firstItem="GfD-Ae-jwH" firstAttribute="centerX" secondItem="dAl-DZ-xmX" secondAttribute="centerX" id="zO7-hC-7PS"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hJG-kB-5Yn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YFw-iP-fu6" firstAttribute="leading" secondItem="hJG-kB-5Yn" secondAttribute="leading" id="0NG-GY-xNP"/>
+                            <constraint firstItem="hJG-kB-5Yn" firstAttribute="trailing" secondItem="YFw-iP-fu6" secondAttribute="trailing" id="0pb-sL-AIp"/>
+                            <constraint firstItem="YFw-iP-fu6" firstAttribute="top" secondItem="hJG-kB-5Yn" secondAttribute="top" id="sar-Sh-2aG"/>
+                            <constraint firstItem="hJG-kB-5Yn" firstAttribute="bottom" secondItem="YFw-iP-fu6" secondAttribute="bottom" id="t8n-di-CkL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bmiValueLabel" destination="ikG-N1-dEy" id="hf2-xp-vhi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xVq-Hy-STl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="-27"/>
         </scene>
     </scenes>
     <resources>

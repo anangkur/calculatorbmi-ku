@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var weightValue: UILabel!
     @IBOutlet weak var heightValue: UILabel!
     
+    private var bmi: Float = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -32,11 +34,15 @@ class ViewController: UIViewController {
     @IBAction func onButtonCalculateClicked(_ sender: UIButton) {
         let height = heightSlider.value
         let weight = weightSlider.value
-        let bmi = weight / pow(height, 2)
-        let secondViewController = SecondViewController()
-        secondViewController.bmiValue = String(format: "%.1f", bmi)
-        self.present(secondViewController, animated: true, completion: nil)
+        self.bmi = weight / pow(height, 2)
+        self.performSegue(withIdentifier: "goToResult", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            let segueDestinationVC = segue.destination as! ResultViewController
+            segueDestinationVC.bmiValue = bmi
+        }
+    }
 }
 
